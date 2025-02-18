@@ -1,0 +1,108 @@
+body div,
+body nav{
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.vl{
+    border-left: 100px;
+    color: black;
+    height: 500px;
+}
+.navigation {
+    background-color: brown;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin-top: -10px;
+    height: 25px;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .navigation_elements {
+    display: inline-block;
+    position: relative;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+  }
+  
+  .navigation_elements::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+  }
+  
+  .navigation_elements:hover::after {
+    width: 100%;
+  }
+  
+  .navigation_elements:hover {
+    color: lightgray;
+  }
+  
+  .body {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .about_text {
+    background-color: blue;
+    width: 250px;
+    height: 580px;
+  }
+  
+  .about_text p {
+    width: 20px;
+  }
+  
+  .content {
+    display: flex;
+    gap: 20px;
+    width: 1200 px;
+    background-color: yellowgreen;
+    height: 580px;
+  }
+/*   
+  .card {
+    position: relative;
+    width: 300px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  } */
+  
+  .card img {
+    width: 100%;
+    display: block;
+  }
+  
+  .card-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .card-btn:hover {
+    background-color: #45a049;
+  }
