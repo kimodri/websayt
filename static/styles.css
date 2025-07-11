@@ -1,0 +1,276 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.site_body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main_content_wrapper {
+  display: flex;
+  flex: 1; /* This makes it take all remaining space, pushing footer down */
+}
+
+.navigation {
+    background-color: #030303;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin-top: -10px;
+    height: 25px;
+    padding-top: 20px;
+  }
+
+.nav_element {
+  list-style: none;
+  cursor: pointer;
+  color: #93B1A6;
+}
+
+  .actions {
+    display: flex;
+    gap: 30px;
+  }
+  
+.navigation_elements {
+  list-style: none; /* optional: removes bullets */
+  display: flex;
+  flex-direction: row; /* optional: default for flex, ensures horizontal */
+  gap: 30px; /* space between links */
+  padding: 0;
+  margin: 0;
+  font-size: medium;
+}
+
+  
+  .nav_element::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+  }
+  
+  .nav_element:hover::after {
+    width: 100%;
+  }
+  
+  .nav_element:hover {
+    color: lightgray;
+  }
+  
+
+/* The div that contains two containers inside */
+  .body {
+    display: flex;
+  }
+  
+    /* All About the content (left)*/
+  /* .about_text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFCDB2;
+    width: 250px;
+    height: 580px;
+    margin-left: -10px;
+  } */
+
+  .about_text {
+    /* Use flex-shrink: 0 to prevent it from shrinking below its width */
+    flex-shrink: 0; /* Important: prevents shrinking */
+    width: 250px; /* Fixed width for the sidebar */
+    background-color: rgba(3, 3, 3, 0.96);
+    padding-top: 100px; /* Add some top padding if content is too high */
+    padding-bottom: 20px; /* Add some bottom padding */
+
+    /* Center content vertically within about_text if it doesn't take full height */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    /* justify-content: center; Center them vertically */ 
+    /* I did not center the contents because it look weird when split screening instead paddong na lang pra fixed */
+    align-items: center; /* Center them horizontally */
+    text-align: center; /* For text within this div */
+
+  }
+  .about_frame {
+    transform: translateY(-50px); /* Moves content up by 20px */
+}
+
+.author_img {
+    text-align: center;
+}
+
+.author_img img {
+  display: block;  
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  width: 100px;  
+  height: 100px; 
+  border-radius: 50%;  
+  object-fit: cover; 
+}
+
+.name p {
+    text-align: center;
+}
+.contact{
+  text-align: left;
+  margin-left: 25px;
+  color:  #e0dbd1;
+}
+.bio{
+  padding-left: 7.5px;  
+  color:  #e0dbd1;
+}
+
+/* links lists about page */
+.links ul {
+  list-style: none;
+  margin-left: 20px;
+  padding: 0;
+}
+
+.links li {
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+  font-size: 18px;
+  margin-bottom: 3px;
+  padding-left: 20px;
+  color:  #e0dbd1;
+}
+
+
+.links li svg{
+  width: 20px;  
+  height: 20px;
+  margin-bottom: -5px; 
+  fill: black;
+}
+
+svg{
+  margin-right: 5px;
+}
+
+
+/* .item-list ul {
+	list-style: disc;
+	display: flex;
+	flex-direction: column;
+	padding-left: 20px;
+	font-size: var(--font-size-s);
+} */
+
+  
+ 
+
+  /* Right side content */
+  
+  .content {
+    flex-grow: 1;
+    display: flex;
+    width: 100%;
+    background-color: rgb(	24, 61, 61, 0.9);
+    justify-content: center;  /* Centers horizontally */
+    align-items: center; 
+    padding: 30px;
+  }
+
+.about_me{
+    width: 60%;
+    background-color: #183D3D;
+
+    /* Centering a div below */
+    margin-left: auto;
+    margin-right: auto;
+
+    /* smoothing my div */
+    border-radius: 10px;
+
+    /* Padding */
+    padding-left: 25px;
+    padding-right: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    box-shadow: #030303 ;
+    max-width: 1000px;
+}
+
+.about_list li:not(:last-child) {
+  margin-bottom: 10px; 
+}
+.about_list{
+  color: #e0dbd1; 
+}
+
+.p_about_me{
+  line-height: 1.5;
+  color: #e0dbd1;
+}
+  /* .cards{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFCDB2;
+    width: 500px;
+    height: 300px;
+  } */
+/*   
+  .card {
+    position: relative;
+    width: 300px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  } */
+  
+  /* .card img {
+    width: 100%;
+    display: block;
+  }
+   */
+  /* .card-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  } */
+  
+  /* .card-btn:hover {
+    background-color: #45a049;
+  } */
+
+.site_footer {
+  background-color: #030303;
+  color: white;
+  text-align: center;
+  padding: 5px 0; /* Reduce vertical space */
+  font-size: 12px; /* Adjust text size */
+  line-height: 1.2;
+}
+
+.footer_p {
+  margin: 0; /* Remove extra spacing */
+  padding: 0;
+}
+
+
+/*================ all about papers ===============*/
+
