@@ -291,6 +291,26 @@ svg{
   height: auto;
 }
 
+.certificate {
+  display: flex;
+  align-items: center;     /* Vertically center icon and text */
+  gap: 10px;               /* Space between icon and text */
+  margin: 8px 0;           /* Vertical spacing between tools */
+  color: #e0dbd1;          /* Optional: text color */
+  font-family: sans-serif;
+  justify-content: center;
+}
+
+.certificate img {
+  width: 80px;             /* Adjust as you like */
+  height: auto;
+}
+
+
+.certification_desc p{
+  text-align: center;
+}
+
 .site_footer {
   background-color: #030303;
   color: white;
