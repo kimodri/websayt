@@ -2,6 +2,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  overflow-x: hidden; /* Hides horizontal scroll caused by overflow */
 }
 
 .site_body {
@@ -73,16 +74,6 @@ html, body {
     display: flex;
   }
   
-    /* All About the content (left)*/
-  /* .about_text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #FFCDB2;
-    width: 250px;
-    height: 580px;
-    margin-left: -10px;
-  } */
 
   .about_text {
     /* Use flex-shrink: 0 to prevent it from shrinking below its width */
@@ -176,43 +167,69 @@ svg{
 
   /* Right side content */
   
-  .content {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background-color: rgb(	24, 61, 61, 0.9);
-    justify-content: center;  /* Centers horizontally */
-    align-items: center; 
-    padding: 30px;
-  }
+ .content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(24, 61, 61, 0.9);
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
 
-.hr_content{
-  width: 600px;
+/* Make <hr> responsive */
+.hr_content {
+  width: 100%;
+  max-width: 600px;
   margin-top: 10px;
   margin-bottom: 10px;
+  border: 1px solid #e0dbd1;
 }
 
-.about_me{
-    width: 80%;
-    background-color: rgb(24,61,61, 0.50);
-
-    /* Centering a div below */
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-
-    /* smoothing my div */
-    border-radius: 10px;
-
-    /* Padding */
-    padding-left: 25px;
-    padding-right: 20px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    box-shadow: #030303 ;
-    max-width: 1000px;
+/* Main content box */
+.about_me {
+  width: 100%;
+  max-width: 1000px;
+  background-color: rgba(24, 61, 61, 0.5);
+  margin: 10px auto;
+  border-radius: 10px;
+  padding: 20px 25px;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+/* MEDIA QUERIES: Responsive behavior */
+@media (max-width: 768px) {
+  .content {
+    padding: 20px;
+  }
+
+  .about_me {
+    padding: 15px 20px;
+  }
+
+  .hr_content {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 10px;
+  }
+
+  .about_me {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .hr_content {
+    max-width: 100%;
+  }
+}
+
 
 
 .about_list li:not(:last-child) {
@@ -226,45 +243,6 @@ svg{
   line-height: 1.5;
   color: #e0dbd1;
 }
-  /* .cards{
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #FFCDB2;
-    width: 500px;
-    height: 300px;
-  } */
-/*   
-  .card {
-    position: relative;
-    width: 300px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-  } */
-  
-  /* .card img {
-    width: 100%;
-    display: block;
-  }
-   */
-  /* .card-btn {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    background-color: #4caf50;
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  } */
-  
-  /* .card-btn:hover {
-    background-color: #45a049;
-  } */
 
 .toolkits{
   display: flex;
@@ -313,10 +291,6 @@ svg{
   height: auto;
 }
 
-
-
-
-
 .site_footer {
   background-color: #030303;
   color: white;
@@ -331,6 +305,274 @@ svg{
   padding: 0;
 }
 
+@media (max-width: 768px) {
+  .main_content_wrapper {
+    flex-direction: column;
+  }
+
+  .about_text {
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+
+  .content {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .toolkits {
+    flex-direction: column;
+    align-items: center; /* optional: centers the stacked columns */
+  }
+
+  .toolkit_container {
+    width: 90%; /* make them span more space on small screens */
+    margin: 10px 0; /* add spacing between stacked cards */
+  }
+}
+.hamburger {
+  display: none;
+  font-size: 28px;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #e0dbd1;
+  background-color: #030303;
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .about_text {
+    display: none;
+    position: absolute;
+    background-color: rgba(3, 3, 3, 0.96);
+    z-index: 999;
+    width: 100%;
+    padding: 40px 0;
+    top: 50px;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .about_text.show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main_content_wrapper {
+    flex-direction: column;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /*================ all about papers ===============*/
+.main_content{
+  flex-grow: 1;
+  background-color: rgba(24, 61, 61, 0.9);
+  display: flex;
+  flex-direction: row;
+}
+.scrollable_container {
+  display: flex;
+	flex-direction: column;
+	/* align-items: center; */
+	
+	/* justify-content: center; */
+	margin: 0px auto 0px auto;
+	width: 60%;
+	margin-top: 10px;
+	margin-bottom: 30px;
+	padding: 40px;
+	box-shadow: 0px 1px 15px rgb(0, 0, 0, 0.1);
+	border-radius: var(--border-radius-2);
+	gap: 10px;
+  height: 450px;               /* Fixed height */
+  overflow-y: auto;  
+  background-color: rgba(24, 61, 61, 0.5);
 
+}
+
+.item {
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  flex-direction: row;
+  /* background-color: blue; */
+	/* border-radius: var(--border-radius-2); */
+  border-radius: 10px;
+	/* border: #2d2d2d42 1px solid; */
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  align-items: center;
+  margin-bottom: 5px;
+  background-color: rgb(255, 255, 255, 0.90)
+  
+}
+
+.picture {
+  display: flex;
+  justify-content: center; /* horizontally center */
+  align-items: center;     /* vertically center */
+  width: 130px;            /* optional: ensure consistent width */
+  height: 150px;           /* optional: ensure consistent height */
+  padding: 10px;           /* optional: adds some space around the image */
+  max-height: 150px;
+}
+
+
+.tag {
+    display: inline-block;
+    background-color: #ddd;
+    border-radius: 12px;
+    padding: 2px 8px;
+    margin: 2px;
+    font-size: 0.85em;
+}
+
+
+.description_container{
+  display: flex;
+  flex-direction: column;
+}
+
+.description{
+  display: flex;
+  flex-direction: column;
+}
+
+.description h3{
+  margin-bottom: 5px;
+}
+
+.description p{
+  margin-top: 0px;
+  font-size: x-small;
+  margin-bottom: 20px;
+}
+
+
+
+/* ============== All about projetcs ================ */
+
+.projects_container {
+    width: 100%;
+    max-width: 1000px;
+    background-color: rgba(24, 61, 61, 0.5);
+    margin: 10px auto;
+    border-radius: 10px;
+    padding: 20px 25px;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;        /* Allows wrapping to next row */
+    /* justify-content: center;  */
+    gap: 25px;
+}
+
+
+.project_item {
+  flex: 0 1 calc(33.333% - 16.67px); 
+  max-width: 300px;                  
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  background-color: #0a0b1c;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+
+
+.project_picture {
+  height: 50%;
+  flex-shrink: 0;
+}
+
+.doneate {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  object-position: 0% 35%; 
+}
+.project_picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* object-position: 0% 35%;  */
+}
+
+
+.project_description {
+  flex: 1;
+  padding-top: 0px;
+  padding-left: 15px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  /* REMOVE justify-content: space-between; */
+  background-color: #0a0b1c;
+  height: 50%;
+}
+
+
+.project_description h3 {
+  color: #f72e91;
+  font-size: 1.3rem;
+  /* margin-bottom: 2px; */
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.project_description p{
+  font-size: small;
+  margin-top: 0px;
+  padding-right: 10px;
+  margin-bottom: 5px;
+}
+.project_description .tags {
+  margin: 10px 0;
+}
+
+.github-link {
+  margin-top: 10px;
+  text-decoration: none;
+  color: #f72e91;
+  font-weight: bold;
+}
+
+.github-icon-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+@media (max-width: 900px) {
+  .project_item {
+    flex: 0 1 calc(50% - 12.5px); /* 2 cards per row */
+  }
+}
+
+@media (max-width: 600px) {
+  .project_item {
+    flex: 0 1 100%; /* 1 card per row */
+  }
+}

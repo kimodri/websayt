@@ -4,9 +4,38 @@
 
 {% include "navigation.html" %}
 
-<div>
+<div class = "main_content">
+    {% include "leftside.html" %}
+    <div style="display: flex; flex-direction: column; flex-grow: 1; align-items: center;">
+        <h1 style = "color: #e0dbd1; justify-content: center; margin-bottom: 10px;">Papers</h1>
+        <hr class ="hr_content">
+        <div class = "scrollable_container">
 
-</div>
+            {% for title, authors, date, tags in papers %}
+            <div class="item">
+                <div class="picture">
+                    <img src="https://placehold.co/120x130/png?" alt="paper cover">
+                </div>
+                <div class="description_container">
+                    <div class="description">
+                        <h3>{{ title }}</h3>
+                        <p>By {{ authors | join(', ') }} ({{ date }})</p>
+                    </div>
+                    <div class="tags">
+                        {% for tag in tags %}
+                            <span class="tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+    
+
+        </div> <!--Scrollable container-->
+    </div>
+
+</div> <!-- Main content -->
 
 {% include "footer.html" %}
 {% endblock %}
