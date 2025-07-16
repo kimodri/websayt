@@ -82,12 +82,19 @@ html, body {
    
     align-items: center; /* Center them horizontally */
     text-align: center; /* For text within this div */
+    opacity: 0.6; /* A little transparent (60% opaque) */
+    transition: opacity 0.3s ease; /* Smooth transition for the opacity change */
 
   }
+
+.about_text:hover{
+  opacity: 1;
+}
 
   .about_frame {
     transform: translateY(-50px); /* Moves content up by 20px */
     margin-top: 20px;
+
 }
 
 .author_img {
@@ -396,7 +403,6 @@ svg{
 /* ----------------------------------------------------------------------------- */
 
 
-
 /* MEDIA QUERIES: Responsive behavior */
 @media (max-width: 768px) {
   .content {
@@ -489,7 +495,7 @@ svg{
   padding: 10px 20px;
   cursor: pointer;
   color: #e0dbd1;
-  background-color: #030303;
+  background-color: #18020c;
   z-index: 1000;
 }
 
@@ -501,13 +507,19 @@ svg{
   .about_text {
     display: none;
     position: absolute;
-    background-color: rgba(3, 3, 3, 0.96);
+    background-color: #e5ffde;
     z-index: 999;
     width: 100%;
     padding: 40px 0;
     top: 50px;
     left: 0;
     transition: all 0.3s ease-in-out;
+    opacity: 1;
+    height: 450px;
+  }
+
+  .about_frame{
+    margin-top: 20%;
   }
 
   .about_text.show {
@@ -518,6 +530,10 @@ svg{
 
   .main_content_wrapper {
     flex-direction: column;
+  }
+
+  .certificate_container{
+    width: 40%;
   }
 }
 
@@ -546,8 +562,13 @@ svg{
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   align-items: center;
   margin-bottom: 5px;
-  background-color: rgb(255, 255, 255, 0.90)
+  background-color: rgb(255, 255, 255, 0.90);
+  transform: scale(1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
   
+.item:hover{
+  transform: scale(1.03);
 }
 
 .picture {
@@ -649,6 +670,15 @@ svg{
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  /* Initial state: Scale it down to 80% of its original size */
+    transform: scale(1);
+    
+  /* Smooth transition for both scale and shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project_item:hover{
+  transform: scale(1.03);
 }
 
 .project_picture {
