@@ -1,10 +1,13 @@
 from flask import Flask, render_template
+from datetime import datetime
+
+year = datetime.now().year
 
 app = Flask(__name__)
 
 @app.route('/')
 def about():
-    return render_template("about.html")
+    return render_template("about.html", year = year)
 
 @app.route('/papers')
 def papers():
@@ -31,7 +34,7 @@ def papers():
 
     papers = zip(titles, authors, dates, tags)
 
-    return render_template("papers.html", papers=papers)
+    return render_template("papers.html", papers=papers, year = year)
 
 @app.route('/projects')
 def projects():
@@ -52,12 +55,12 @@ def projects():
 
     projects = zip(img, project_names, descriptions, tags, links)
 
-    return render_template('projects.html', projects = projects)
+    return render_template('projects.html', projects = projects, year = year)
 
 
 @app.route('/life')
 def life():
-    return render_template("life.html")
+    return render_template("life.html", year = year)
 
 
 
