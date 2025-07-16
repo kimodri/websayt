@@ -16,5 +16,5 @@ This website is built using the following core technologies:
 
 * **HTML:**  Provides the structure and content of the website.
 * **CSS:** Styles the website, making it visually appealing and user-friendly.
-* **JavaScript:** Provides dynamism to the website
+* **JavaScript:** Provides dynamism to the website.
 * **Flask (Python):**  A lightweight web framework that allows for dynamic content generation, routing, and server-side logic.  Flask is used to power the interactive elements of the site and handle data.
