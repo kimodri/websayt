@@ -55,7 +55,9 @@ def projects():
     return render_template('projects.html', projects = projects)
 
 
-
+@app.route('/life')
+def life():
+    return render_template("life.html")
 
 
 

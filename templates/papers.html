@@ -4,12 +4,12 @@
 
 {% include "navigation.html" %}
 
-<div class = "main_content">
+<div class = "main_content_wrapper">
     {% include "leftside.html" %}
-    <div style="display: flex; flex-direction: column; flex-grow: 1; align-items: center;">
-        <h1 style = "color: #e0dbd1; justify-content: center; margin-bottom: 10px;">Papers</h1>
+    <div class = "content">
+        <h1>Papers</h1>
         <hr class ="hr_content">
-        <div class = "scrollable_container">
+        <div class = "papers_container">
 
             {% for title, authors, date, tags in papers %}
             <div class="item">
